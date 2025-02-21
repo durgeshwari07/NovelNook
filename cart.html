@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVEL-NOOK Cart</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+
+
+    <header>
+        <a href="index.html" class="logo">
+          <img src="novelnook.png" alt="Novel Nook Logo" />
+        </a>
+    </header>
+    <h2>Shopping Cart</h2>
+    <div class="container" id="cart-items"></div>
+
+    <div class="summary">
+        <h3>Total: ₹<span id="total-price">0</span></h3>
+    </div>
+
+   <a href="checkout.html"> <button class="checkout-btn" id="checkout-btn">Proceed to Checkout</button></a>
+    <a href="product.html"><button class="checkout-btn">Back to Products</button></a>
+
+    <script>
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const cartContainer = document.getElementById("cart-items");
+        const totalPriceEl = document.getElementById("total-price");
+        const checkoutBtn = document.getElementById("checkout-btn");
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        function renderCart() {
+            cartContainer.innerHTML = "";
+            let total = 0;
+
+            if (cart.length === 0) {
+                cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+                totalPriceEl.textContent = "0";
+                return;
+            }
+
+            cart.forEach((item, index) => {
+                const cartItem = document.createElement("div");
+                cartItem.classList.add("cart-item");
+                cartItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}">
+                    <p>${item.title} - ₹${item.price}</p>
+                    <button class="remove-btn" data-index="${index}">Remove</button>
+                `;
+                cartContainer.appendChild(cartItem);
+
+                // Convert price to number and add to total
+                total += parseInt(item.price.replace("₹", "").trim());
+            });
+
+            // Display total price
+            totalPriceEl.textContent = total;
+        }
+
+        cartContainer.addEventListener("click", function(event) {
+            if (event.target.classList.contains("remove-btn")) {
+                const index = event.target.getAttribute("data-index");
+                cart.splice(index, 1);
+                localStorage.setItem("cart", JSON.stringify(cart));
+                renderCart();
+            }
+        });
+
+        checkoutBtn.addEventListener("click", function() {
+            if (cart.length > 0) {
+                window.location.href = "checkout.html";
+            } else {
+                alert("Your cart is empty!");
+            }
+        });
+
+        renderCart();
+    });
+</script>
+
+
+    
+</body>
+</html>

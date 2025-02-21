@@ -1,0 +1,151 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+
+  
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 20px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 100px;
+    transition: 0.5s linear;
+    /* background: var(--bg-color); */
+    
+}
+
+header.shadow{
+    background: var(--main-color);
+    box-shadow: var(--box-shadow);
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo img{
+    width: 110PX;
+    height: auto;
+}
+
+/* Heading */
+h2 {
+    margin: 20px 0;
+    font-size: 2rem;
+    color: #333;
+}
+
+/* Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Cart Items */
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: white;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.cart-item:hover {
+    transform: scale(1.02);
+}
+
+/* Product Image */
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+/* Product Info */
+.cart-item p {
+    flex-grow: 1;
+    font-size: 1rem;
+    color: #222;
+}
+
+/* Remove Button */
+.cart-item button {
+    background: #ff5733;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.cart-item button:hover {
+    background: #c70039;
+}
+
+/* Checkout Button */
+.checkout-btn {
+    display: inline-block;
+    margin: 20px 10px;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.checkout-btn:hover {
+    background: #218838;
+}
+
+/* Order Summary */
+.summary {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    text-align: left;
+}
+
+.summary h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.summary p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.summary strong {
+    font-size: 1.2rem;
+    color: #e63946;
+}

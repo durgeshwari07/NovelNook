@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVEL-NOOK</title>
+    <link rel="stylesheet" href="style.css">
+    
+
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+  />
+
+</head>
+<body>
+    
+<!-- Navbar -->
+     <header>
+        <a href="index.html" class="logo">
+          <img src="novelnook.png" alt="Novel Nook Logo" />
+        </a>
+        
+        <nav>
+            <ul class="sidebar">
+              <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#products">Products</a></li>
+              <li><a href="aboutus.html">About</a></li>
+              <li><a href="#customers">Customers</a></li>
+
+
+
+            
+              <li class="hideOnMobile"><a href="login.html">
+                <button class="button" id="form-open">Login</button>
+              </a></li>
+        
+           </ul>
+        
+
+           <ul>
+            <li class="hideOnMobile"><a href="#Home">Home</a></li>
+            <li class="hideOnMobile"><a href="#products">Products</a></li>
+            <li class="hideOnMobile"><a href="aboutus.html">About</a></li>
+            <li class="hideOnMobile"><a href="#customers">Customers</a></li>
+           
+            <li class="hideOnMobile"><a href="login.html">
+              <button class="button" id="form-open">Login</button>
+            </a></li>
+           </ul>
+        </nav>
+
+
+        
+      <div class="header-icon">
+       <a href="#">
+        <!-- <i class="bx bx-cart-alt"></i> -->
+        <li class="menu-button"  onclick="showSidebar()">
+        </a>
+          
+          <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a>
+        </li>
+      
+      </div>
+    </header>
+
+
+
+    <!-- Home -->
+    <section class="home">
+      <div class="home-text">
+        <h2>
+          "A Hidden Nook for Timeless Tales <br />
+          & Endless Adventures."
+          <h1><span>NoveL Nook</span></h1>
+        </h2>
+        <a href="#" class="btn">Shop Now</a>
+      </div>
+
+      <div class="home-img">
+        <img src="#" alt="" />
+      </div>
+    </section>
+
+
+    <!-- products -->
+    <section class="products" id="products">
+
+      <div class="categories-container">
+
+      <div class="heading">
+        <h2>Our Popular Products</h2>
+      </div>
+
+      <!-- Container -->
+      <div class="product-container">
+      
+        <!-- 1 -->
+        <div class="box">
+          <img
+            src="https://i.pinimg.com/736x/c2/7c/0a/c27c0a661a617ac0991d82e7f072400f.jpg"
+            alt=""
+          />
+          <h3>The Romantic Reads Corners</h3>
+          <div class="content">
+            <!-- <span>rs300</span> -->
+            <a href="product.html">SEE MORE</a>
+          </div>
+        </div>
+        <!-- 2 -->
+        <div class="box">
+          <img
+            src="https://i.pinimg.com/736x/73/c7/b0/73c7b05e42b29be36227db728425dd5c.jpg"
+            alt=""
+          />
+          <h3>Mystery & Thriller</h3>
+          <div class="content">
+            <!-- <span>rs300</span> -->
+            <a href="product2.html">SEE MORE</a>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="box">
+          <img
+            src="https://i.pinimg.com/736x/f8/33/7c/f8337c0555d21cd0c60f1f91f17d50b4.jpg"
+            alt=""
+          />
+          <h3>Fantasy & Adventure</h3>
+          <div class="content">
+            <!-- <span>rs300</span> -->
+            <a href="product3.html">SEE MORE</a>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="box">
+          <img
+            src="https://i.pinimg.com/736x/06/c1/6f/06c16f6576568224ea2a1a9761fab3ed.jpg"
+            alt=""
+          />
+          <h3>Sci-Fi & Dystopian</h3>
+          <div class="content">
+            <!-- <span>rs300</span> -->
+            <a href="product4.html">SEE MORE</a>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="box">
+          <img
+            src="https://i.pinimg.com/236x/af/6f/55/af6f559cda30b6a24ad3ecfe711a5bf2.jpg"
+            alt=""
+          />
+          <h3> Classic Literature </h3>
+          <div class="content">
+            <!-- <span>rs300</span> -->
+            <a href="product5.html">SEE MORE</a>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="box">
+          <img
+            src="https://i.pinimg.com/736x/01/02/db/0102db28acb866dc35711d7f35021280.jpg"
+            alt=""
+          />
+          <h3>Comics & Manga</h3>
+          <div class="content">
+            <!-- <span>rs300</span> -->
+            <a href="product6.html">SEE MORE</a>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- Featured Authors -->
+
+    <section class="author-section">
+      <h2>Novelist</h2>
+      <div class="author-container">
+          <div class="author-box">
+            <a href="set.html">
+              <h3>Ana Huang</h3></a>
+          </div>
+          <div class="author-box">
+             <a href="set.html">
+               <h3>Rowling</h3></a>
+          </div>
+          
+      </div>
+  </section>
+  
+
+    <!-- customers -->
+
+    <section class="customers" id="customers">
+      <div class="heading">
+        <h2>Our customer's</h2>
+      </div>
+
+      <!-- contoiner -->
+      <div class="customers-container">
+        <div class="box">
+          <div class="stars">
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star-half"></i>
+          </div>
+          <p>
+          "Love the website! It's clean, easy to navigate, and makes finding books effortless. The name is catchy too!"
+          </p>
+          <h2>Jimin</h2>
+          <img src="" alt="" />
+        </div>
+
+        <div class="box">
+          <div class="stars">
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star-half"></i>
+          </div>
+          <p>
+          "The website is amazing! It's user-friendly, and I found my favorite books easily. Great job!"
+          </p>
+          <h2>Aarav</h2>
+          <img src="" alt="" />
+        </div>
+
+        <div class="box">
+          <div class="stars">
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star-half"></i>
+          </div>
+          <p>
+          "Good collection and fast delivery! The website name is nice, but a more unique touch could make it stand out."
+          </p>
+          <h2>Sneha </h2>
+          <img src="" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <section class="footer">
+      <div class="footer-box">
+        <h3>Novel Nook</h3>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+        <div class="social">
+          <a href="#"><i class='bx bxl-instagram-alt' ></i></a>
+          <a href="#"><i class='bx bxl-facebook'></i></a>
+          <a href="#"><i class='bx bxl-twitter'></i></a>
+        </div>
+      </div>
+      <div class="footer-box">
+        <h3>Support</h3>
+        <li><a href="#">Product</a></li>
+        <li><a href="#">Help & Support</a></li>
+        <li><a href="#">Return Policy</a></li>
+        <li><a href="#">Terms Of Use</a></li>
+      </div>
+
+      <div class="footer-box">
+        <h3>Guides</h3>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Blog Posts</a></li>
+        <li><a href="#">Our Branches</a></li>
+      </div>
+      <div class="footer-box">
+        <h3>Contact</h3>
+        <div class="contact">
+          <span><i class='bx bxs-map'></i>Ponda Goa,India 403401</span><br>
+          <span><i class='bx bxs-phone'></i>+91 1212151418</span><br>
+          <span><i class='bx bx-envelope'></i>novelnook@shop.com</span>
+        </div>
+      </div>
+    </section>
+    <!-- copyright -->
+     <div class="copyright">
+      <p>&#169; CarpoolVenom All Right Reeserved</p>
+     </div>
+
+    <script src="script.js"></script>
+    <script src="product.js"></script>
+</body>
+</html>

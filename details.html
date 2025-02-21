@@ -1,0 +1,185 @@
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVEL-NOOK-Book-Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <style>
+        /* General Page Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Add to Cart Button */
+.add-to-cart {
+    background: #ff5733;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background: #c70039;
+}
+       
+
+        /* Book Details Section */
+        .container {
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+            height: 80%;
+        }
+        .book-wrapper {
+            display: flex;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+        }
+        .book-info {
+            flex: 1;
+            padding: 20px;
+        }
+        .book-info h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .book-info p {
+            font-size: 1.1rem;
+            margin: 5px 0;
+        }
+        .book-info button {
+            background: #ff5733;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+        }
+        .book-info button:hover {
+            background: #c70039;
+        }
+
+        
+        
+/* Cart Icon Button */
+.cart-icon {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 1.8rem;
+    color: white;
+    background: #ff5733;
+    padding: 10px 15px;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.cart-icon:hover {
+    background: #c70039;
+}
+
+
+
+        /* Book Image */
+        .book-image {
+            flex: 1;
+            text-align: center;
+        }
+        .book-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+
+
+
+
+    <!-- Navigation Bar -->
+    
+
+    <div class="container">
+        <div class="book-details" id="book-details"></div>
+    </div> 
+
+
+    <header>
+        <a href="index.html" class="logo">
+          <img src="novelnook.png" alt="Novel Nook Logo" />
+        </a>
+       
+        <a href="cart.html" class="cart-icon">
+            <!-- <i class="fas fa-shopping-cart"></i> -->
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
+            </svg>
+        </a>
+            </header>
+            <br><br>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const bookDetailsContainer = document.getElementById("book-details");
+
+            // Get book details from URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const bookData = {
+                title: urlParams.get("title"),
+                author: urlParams.get("author"),
+                price: urlParams.get("price"),
+                description: urlParams.get("description"),
+                image: urlParams.get("image")
+            };
+
+            if (bookData.title) {
+                bookDetailsContainer.innerHTML = `
+                    <div class="book-wrapper">
+                        <div class="book-info">
+                            <h2>${bookData.title}</h2>
+                            <p><strong>Author:</strong> ${bookData.author}</p>
+                            <p><strong>Price:</strong> ₹${bookData.price}</p>
+                            <p><strong>Description:</strong> ${bookData.description}</p>
+                            <button onclick="addToCart('${bookData.title}', '${bookData.price}', '${bookData.image}')">Add to Cart</button>
+                        </div>
+                        <div class="book-image">
+                            <img src="${bookData.image}" alt="${bookData.title}">
+                        </div>
+                    </div>
+                `;
+            } else {
+                bookDetailsContainer.innerHTML = "<p>No book details available.</p>";
+            }
+        });
+
+        function addToCart(title, price, image) {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.push({ title, price, image });
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert("Book added to cart!");
+        }
+    </script>
+
+
+</body>
+</html>

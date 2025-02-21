@@ -1,0 +1,202 @@
+/* General Styles */
+body {
+   font-family: 'Poppins', sans-serif;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh;
+   /* background: url('img/bg01.png') no-repeat center/cover; */
+   /* background: #d9def8; */
+   background: #eaf1ff;
+   margin: 0;
+}
+
+header{
+   position: fixed;
+   width: 100%;
+   top: 0;
+   left: 20px;
+   z-index: 1000;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 18px 100px;
+   transition: 0.5s linear;
+   /* background: var(--bg-color); */
+   
+}
+
+header.shadow{
+   background: var(--main-color);
+   box-shadow: var(--box-shadow);
+   background-color: rgba(255, 255, 255, 0.15);
+   backdrop-filter: blur(12px);
+   box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo img{
+   width: 110PX;
+   height: auto;
+}
+
+/* Home Section */
+.home {
+   position: relative;
+   width: 100%;
+   text-align: center;
+   
+}
+
+/* Form Container */
+.form-container {
+   position: fixed;
+   max-width: 350px;
+   width: 100%;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%) scale(1);
+   z-index: 101;
+   background: #fff;
+   padding: 25px;
+   border-radius: 12px;
+   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+   opacity: 1; /* Always visible */
+   pointer-events: auto; /* Always interactable */
+
+   
+}
+
+/* Form Close Button */
+.form-close {
+   position: absolute;
+   top: 10px;
+   right: 20px;
+   font-size: 22px;
+   cursor: pointer;
+}
+
+/* Form Headings */
+.form-container h2 {
+   font-size: 22px;
+   color: #080606;
+   text-align: center;
+}
+
+/* Input Fields */
+.input-box {
+   position: relative;
+   margin-top: 15px;
+   width: 80%;
+   height: 45px;
+}
+
+.input-box input {
+   height: 100%;
+   width: 100%;
+   border: none;
+   outline: none;
+   padding: 0 35px;
+   font-size: 14px;
+   border-bottom: 1.5px solid #aaaaaa;
+}
+
+.input-box i {
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   font-size: 18px;
+   color: #707070;
+}
+
+/* Icons */
+.input-box i.email,
+.input-box i.password {
+   left: 10px;
+}
+
+.input-box i.pw-hide {
+   right: 10px;
+   cursor: pointer;
+}
+
+/* Remember Me & Forgot Password */
+.option-field {
+   margin-top: 14px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.form-container a {
+   color: #7d2ae8;
+   font-size: 12px;
+}
+
+.form-container a:hover {
+   text-decoration: underline;
+   
+}
+
+/* Buttons */
+.button {
+   background-color: #7d2ae8;
+   margin-top: 30px;
+   width: 100%;
+   padding: 10px 0;
+   border-radius: 10px;
+   font-size: 16px;
+   color: white;
+   border: none;
+   cursor: pointer;
+}
+
+/* Login/Signup Switch */
+.login-signup {
+   font-size: 12px;
+   text-align: center;
+   margin-top: 15px;
+}
+
+/* Hide Signup Form by Default */
+.signup-form {
+   display: none;
+}
+
+/* Show Signup Form when Active */
+.form-container.active .signup-form {
+   display: block;
+}
+
+.form-container.active .login-form {
+   display: none;
+}
+
+
+/* Modal Styles */
+.modal {
+   display: none; 
+   position: fixed;
+   z-index: 1000;
+   left: 0; 
+   top: 0;
+   width: 100%; 
+   height: 100%;
+   background-color: rgba(0,0,0,0.5);
+   justify-content: center;
+   align-items: center;
+}
+
+.modal-content {
+   background: white;
+   padding: 20px;
+   width: 50%;
+   border-radius: 10px;
+   position: relative;
+}
+
+.close {
+   position: absolute;
+   right: 10px; top: 10px;
+   font-size: 20px;
+   cursor: pointer;
+}

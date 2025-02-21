@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+    <style>
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+/* Cart Icon Button */
+.cart-icon {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 1.8rem;
+    color: white;
+    background: #ff5733;
+    padding: 10px 15px;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.cart-icon:hover {
+    background: #c70039;
+}
+
+/* Heading */
+h2 {
+    margin: 60px 0 20px;
+    font-size: 2rem;
+    color: #333;
+}
+ 
+
+
+/* Product Container */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1300px;
+    height: 900px;
+    margin: auto;
+}
+
+/* Individual Product */
+.product {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Product Image */
+.product img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Product Title */
+.product-title {
+    font-size: 1.2rem;
+    color: #222;
+    margin: 10px 0;
+}
+
+/* Product Price */
+.product-price {
+    font-size: 1.1rem;
+    color: #e63946;
+    font-weight: bold;
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+    background: #ff5733;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background: #c70039;
+}
+
+
+    </style>
+
+    <!-- Cart Button on Top Right -->
+    
+
+
+    <header>
+        <a href="index.html" class="logo">
+          <img src="novelnook.png" alt="Novel Nook Logo" />
+        </a>
+       
+        <a href="cart.html" class="cart-icon">
+            <!-- <i class="fas fa-shopping-cart"></i> -->
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
+            </svg>
+        </a>
+            </header>
+    
+    <h2>Products</h2>
+    <div class="container" id="product-container"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const products = [
+                { id: 1, title: "The Guest List", author: " Lucy Foley", price: "₹200", image: "https://tse4.mm.bing.net/th?id=OIP.CaHo8yyQVMNnCWU1HbzgqgHaLP&w=200&h=303&c=7", description: " a gripping mystery novel set on a remote island off the coast of Ireland, where guests gather for a high-profile wedding. As festivities unfold, tensions rise, and hidden secrets emerge, culminating in a shocking murder that leaves everyone a suspect." },
+                { id: 2, title: "The Girl on the Train", author: "Paula Hawkins", price: "₹200", image: "https://tse3.mm.bing.net/th?id=OIP.f__hs-dJM2KOpk5z_vbSQwHaLj&w=200&h=312&c=7", description:"The Girl on the Train is a psychological thriller by Paula Hawkins. The story centers on Rachel, an alcoholic who commutes daily to London, fixating on a couple she observes from the train. When the woman goes missing, Rachel becomes entangled in the investigation, uncovering unsettling truths about herself and others. " },
+                { id: 3, title: "The Housemaid", author: "Freida McFadden ", price: "₹178", image: "https://tse2.mm.bing.net/th?id=OIP.XCCL1sXBjApe2nFYXL0QIwHaL2&w=200&h=320&c=7", description:"The Housemaid is a psychological thriller by Freida McFadden. The story follows Millie Calloway, a young woman with a troubled past, who secures a live-in housemaid position with the affluent Winchester family. As she settles into her new role, Millie becomes increasingly unsettled by the erratic behavior of Nina Winchester, the matriarch, and the peculiar dynamics within the household. " },
+                { id: 4, title: "Verity", author: "Colleen Hoover", price: "₹339", image: "https://tse4.mm.bing.net/th?id=OIP.tDcV6YKBJrce-G2RZH6NggHaLg&w=200&h=311&c=7", description:"Verity by Colleen Hoover is a dark psychological thriller that follows struggling writer Lowen Ashleigh, who is hired to complete the unfinished books of bestselling author Verity Crawford after a tragic accident leaves her unable to write. While working in Verity’s home, Lowen stumbles upon a disturbing, unpublished manuscript revealing shocking confessions." },
+                { id: 5, title: "Big Little Lies", author: "Liane Moriarty", price: "₹273", image: "https://tse2.mm.bing.net/th?id=OIP.omAdFVDDyIW0F1LsU3Ur6QHaLH&w=200&h=300&c=7", description:"Big Little Lies by Liane Moriarty is a gripping psychological drama that follows three women—Madeline, Celeste, and Jane—whose seemingly perfect lives unravel after a shocking event at their children’s school." },
+                { id: 6, title: "The Girl with the Dragon Tattoo", author: "Stieg Larsson", price: "₹320", image: "https://tse1.mm.bing.net/th?id=OIP.yM9LFBuy_iN8ln7La4cj7gAAAA&w=200&h=329&c=7", description:"The Girl with the Dragon Tattoo by Stieg Larsson is a gripping mystery thriller that follows journalist Mikael Blomkvist and hacker Lisbeth Salander as they investigate the decades-old disappearance of a young woman from a wealthy Swedish family. As they dig deeper, they uncover dark family secrets, corruption, and a dangerous conspiracy." },
+                { id: 7, title: "The Silent Patient", author: "Alex Michaelides ", price: "₹399", image: "https://tse3.mm.bing.net/th?id=OIP.hfQo9eShUnWE6RNf2NsWyQHaLW&w=200&h=306&c=7", description:"The Silent Patient by Alex Michaelides is a psychological thriller about Alicia Berenson, a famous painter who seemingly has the perfect life—until she shoots her husband five times and stops speaking entirely. Locked away in a psychiatric facility, she refuses to explain her actions." },
+                { id: 8, title: "The Crash", author: "Freida McFadden ", price: "₹365", image: "https://tse2.mm.bing.net/th?id=OIP.EHc-83V7LuMwjeZUQtUGUwAAAA&w=200&h=305&c=7", description:"The Crash is a psychological thriller by Freida McFadden. The story centers on Tegan, an eight-months pregnant woman fleeing her troubled past. While driving to her brother's home, she becomes stranded in a blizzard in rural Maine after her car breaks down and she suffers a broken ankle.." },
+                { id: 9, title: "All the Sinners Bleed", author: " S.A. Cosby", price: "₹1500", image: "https://tse1.mm.bing.net/th?id=OIP.KoxeTQfegj16VTlqaGTgVAHaLQ&w=200&h=304&c=7", description:"All the Sinners Bleed is a gripping crime thriller by S.A. Cosby. The novel follows Titus Crown, the first Black sheriff in Charon County, Virginia, as he confronts a school shooting that unravels a web of dark secrets and systemic corruption within the community. ." },
+              
+            ];
+            
+            const container = document.getElementById("product-container");
+            
+            products.forEach(product => {
+                const productElement = document.createElement("div");
+                productElement.classList.add("product");
+                productElement.innerHTML = `
+                   
+
+                     <a href="details.html?title=${encodeURIComponent(product.title)}&author=${encodeURIComponent(product.author)}&price=${encodeURIComponent(product.price)}&description=${encodeURIComponent(product.description)}&image=${encodeURIComponent(product.image)}">
+                    <img src="${product.image}" alt="${product.title}">
+                </a>
+                    <h2 class="product-title">${product.title}</h2>
+                    <p class="product-price">${product.price}</p>
+                    <button class="add-to-cart" onclick='addToCart(${JSON.stringify(product)})'>Add to Cart</button>
+                `;
+                container.appendChild(productElement);
+            });
+            
+            window.addToCart = function(product) {
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                cart.push(product);
+                localStorage.setItem("cart", JSON.stringify(cart));
+                alert("Added to cart!");
+            };
+        });
+    </script>
+</body>
+</html>

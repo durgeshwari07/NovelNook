@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+    <style>
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+/* Cart Icon Button */
+.cart-icon {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 1.8rem;
+    color: white;
+    background: #ff5733;
+    padding: 10px 15px;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.cart-icon:hover {
+    background: #c70039;
+}
+
+/* Heading */
+h2 {
+    margin: 60px 0 20px;
+    font-size: 2rem;
+    color: #333;
+}
+ 
+
+
+/* Product Container */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1300px;
+    height: 900px;
+    margin: auto;
+}
+
+/* Individual Product */
+.product {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Product Image */
+.product img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Product Title */
+.product-title {
+    font-size: 1.2rem;
+    color: #222;
+    margin: 10px 0;
+}
+
+/* Product Price */
+.product-price {
+    font-size: 1.1rem;
+    color: #e63946;
+    font-weight: bold;
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+    background: #ff5733;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background: #c70039;
+}
+
+
+    </style>
+
+    <!-- Cart Button on Top Right -->
+    
+
+
+    <header>
+        <a href="index.html" class="logo">
+          <img src="novelnook.png" alt="Novel Nook Logo" />
+        </a>
+       
+        <a href="cart.html" class="cart-icon">
+            <!-- <i class="fas fa-shopping-cart"></i> -->
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
+            </svg>
+        </a>
+            </header>
+    
+    <h2>Products</h2>
+    <div class="container" id="product-container"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const products = [
+
+                { id: 1, title: "The Maze Runner", author: "James Dashner", price: "₹300", image: "https://tse2.mm.bing.net/th?id=OIP.lKiJqs0JrTrKlb9nv3yPdQHaLG&w=200&h=300&c=7", description:"Thomas awakens in a mysterious maze with no memory, joining other teens in a quest to escape while uncovering the truth about their predicament." },
+                { id: 2, title: "The Hunger Games", author: "Suzanne Collins", price: "₹300", image: "https://tse3.mm.bing.net/th?id=OIP.p_l2M4bHk8vAKr7I-hAIvwHaLR&w=200&h=304&c=7", description:"In a dystopian future, teenager Katniss Everdeen volunteers to participate in a televised battle to the death, challenging oppressive societal norms. " },
+                { id: 3, title: "Dune", author: "Frank Herbert", price: "₹599", image: "https://tse2.mm.bing.net/th?id=OIP.cvoSdGRO8TtT-zw5N0qAAQHaLL&w=200&h=302&c=7", description:"Set on the desert planet Arrakis, young Paul Atreides navigates political intrigue, prophecy, and survival in a battle over the coveted spice melange." },
+                { id: 4, title: "1984", author: "George Orwell", price: "₹200", image: "https://tse1.mm.bing.net/th?id=OIP.Z5KLQbybGAxlM5JdjOWeWwHaKe&w=200&h=283&c=7", description:"In a totalitarian society under constant surveillance, Winston Smith dares to seek truth and individuality, challenging the oppressive regime of Big Brother." },
+                { id: 5, title: "Project Hail Mary", author: "Andy Weir", price: "₹500", image: "https://tse3.mm.bing.net/th?id=OIP.PkeHIkVrp9MqMfRP3eQPYwHaLL&w=200&h=302&c=7", description:"Ryland Grace awakens alone on a spaceship, tasked with saving Earth from an existential threat, relying on his ingenuity and unexpected alliances." },
+                { id: 6, title: "The 5th Wave", author: " Rick Yancey", price: "₹350", image:"https://tse2.mm.bing.net/th?id=OIP.gKPZiP8hZlpIHd1TkTAKwAHaLH&w=200&h=300&c=7", description:"After four waves of alien attacks decimate Earth, Cassie Sullivan strives to save her brother, navigating a world where trust is a dangerous gamble." },
+                { id: 7, title: "Brave New World", author: "Aldous Huxley", price: "₹250", image: "https://tse2.mm.bing.net/th?id=OIP.JBh2lS_TAUHQZxXc5l9UMAHaLY&w=200&h=307&c=7", description:"In a technologically advanced society prioritizing pleasure and conformity, individualism and emotion are suppressed, leading to unforeseen consequences." },
+                { id: 8, title: "Cinder", author: "Marissa Meyer", price: "₹400", image: "https://tse1.mm.bing.net/th?id=OIP.JlyKZbpkBSBzlCJNB8ocZQHaLI&w=200&h=300&c=7", description:"A futuristic retelling of Cinderella, where cyborg mechanic Cinder becomes entangled in interplanetary politics and a quest to uncover her mysterious past." },
+                // { id: 9, title: "", author: "", price: "₹", image: "", description:" " },
+
+
+            ];
+            
+            const container = document.getElementById("product-container");
+            
+            products.forEach(product => {
+                const productElement = document.createElement("div");
+                productElement.classList.add("product");
+                productElement.innerHTML = `
+                   
+
+                     <a href="details.html?title=${encodeURIComponent(product.title)}&author=${encodeURIComponent(product.author)}&price=${encodeURIComponent(product.price)}&description=${encodeURIComponent(product.description)}&image=${encodeURIComponent(product.image)}">
+                    <img src="${product.image}" alt="${product.title}">
+                </a>
+                    <h2 class="product-title">${product.title}</h2>
+                    <p class="product-price">${product.price}</p>
+                    <button class="add-to-cart" onclick='addToCart(${JSON.stringify(product)})'>Add to Cart</button>
+                `;
+                container.appendChild(productElement);
+            });
+            
+            window.addToCart = function(product) {
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                cart.push(product);
+                localStorage.setItem("cart", JSON.stringify(cart));
+                alert("Added to cart!");
+            };
+        });
+    </script>
+</body>
+</html>

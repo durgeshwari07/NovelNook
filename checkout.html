@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVEL-NOOK-Checkout</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+<body>
+
+
+    <style>
+        /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 20px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 100px;
+    transition: 0.5s linear;
+    /* background: var(--bg-color); */
+    
+}
+
+header.shadow{
+    background: var(--main-color);
+    box-shadow: var(--box-shadow);
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo img{
+    width: 110PX;
+    height: auto;
+}
+
+/* Heading */
+h2, h3 {
+    color: #333;
+}
+
+/* Order Summary */
+#order-summary {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: left;
+}
+
+#order-summary p {
+    font-size: 16px;
+    padding: 5px 0;
+}
+
+#order-summary strong {
+    font-size: 18px;
+    color: #d9534f;
+}
+
+/* Form Styling */
+form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: left;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+textarea {
+    height: 80px;
+    resize: none;
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    padding: 12px;
+    background: #28a745;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #218838;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    #order-summary, form {
+        width: 90%;
+    }
+}
+
+</style>
+
+
+
+<header>
+    <a href="index.html" class="logo">
+      <img src="novelnook.png" alt="Novel Nook Logo" />
+    </a>
+</header>
+
+    <h2>Checkout</h2>
+
+    <div id="order-summary"></div>
+
+    <!-- Delivery Details Form -->
+    <h3>Delivery Details</h3>
+    <form id="delivery-form">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" required>
+
+        <label for="address">Address:</label>
+        <textarea id="address" required></textarea>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" required pattern="[0-9]{10}" title="Enter a valid 10-digit phone number">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+
+        <button type="submit" id="confirm-order">Place Order</button>
+    </form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const summaryContainer = document.getElementById("order-summary");
+            const confirmOrderBtn = document.getElementById("confirm-order");
+            const deliveryForm = document.getElementById("delivery-form");
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            function renderSummary() {
+                summaryContainer.innerHTML = "<h3>Order Summary</h3>";
+                let total = 0;
+
+                if (cart.length === 0) {
+                    summaryContainer.innerHTML += "<p>Your cart is empty.</p>";
+                    return;
+                }
+
+                cart.forEach(item => {
+                    summaryContainer.innerHTML += `<p>${item.title} - ₹${item.price}</p>`;
+                    total += parseInt(item.price.replace("₹", "").trim());
+                });
+
+                summaryContainer.innerHTML += `<p><strong>Total: ₹${total}</strong></p>`;
+            }
+
+            deliveryForm.addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                if (cart.length === 0) {
+                    alert("Your cart is empty!");
+                    return;
+                }
+
+                const name = document.getElementById("name").value.trim();
+                const address = document.getElementById("address").value.trim();
+                const phone = document.getElementById("phone").value.trim();
+                const email = document.getElementById("email").value.trim();
+
+                if (!name || !address || !phone || !email) {
+                    alert("Please fill in all the details!");
+                    return;
+                }
+
+                alert("Your order has been placed successfully!");
+                localStorage.removeItem("cart");
+                window.location.href = "thankyou.html";
+            });
+
+            renderSummary();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Online Bookstore</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<style>
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #F8F9FA;
+    color: #34495E;
+}
+
+.about {
+    padding: 80px 10%;
+    background: #ffffff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin: 50px auto;
+    max-width: 1200px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.about-content {
+    max-width: 600px;
+}
+
+.about-content h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #2C3E50;
+}
+
+.about-content span {
+    color: #E74C3C;
+}
+
+.about-content p {
+    font-size: 1.2rem;
+    margin: 15px 0;
+    line-height: 1.6;
+}
+
+.about-content ul {
+    list-style: none;
+    margin: 20px 0;
+}
+
+.about-content ul li {
+    font-size: 1.2rem;
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+}
+
+.about-content ul li::before {
+    content: '✔';
+    margin-right: 10px;
+    color: #E74C3C;
+    font-weight: bold;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background: #3498DB;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background: #2980B9;
+    transform: scale(1.05);
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-image img {
+        margin-top: 20px;
+    }
+}
+
+
+</style>
+
+
+<!-- -- Navbar --> 
+     <header>
+        <a href="index.html" class="logo">
+          <img src="novelnook.png" alt="Novel Nook Logo" />
+        </a>
+        
+        <nav>
+            <ul class="sidebar">
+              <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="product.html">Products</a></li>
+              <li><a href="aboutus.html">About</a></li>
+              <!-- <li><a href="#customers">Customers</a></li> -->
+
+
+
+            
+              <li class="hideOnMobile"><a href="login.html">
+                <button class="button" id="form-open">Login</button>
+              </a></li>
+        
+           </ul>
+        
+
+           <ul>
+            <li class="hideOnMobile"><a href="index.html">Home</a></li>
+            <li class="hideOnMobile"><a href="product.html">Products</a></li>
+            <li class="hideOnMobile"><a href="aboutus.html">About</a></li>
+            <!-- <li class="hideOnMobile"><a href="#customers">Customers</a></li> -->
+           
+            <li class="hideOnMobile"><a href="login.html">
+              <button class="button" id="form-open">Login</button>
+            </a></li>
+           </ul>
+        </nav>
+
+
+        
+      <div class="header-icon">
+       <a href="#">
+        <!-- <i class="bx bx-cart-alt"></i> -->
+        <!-- <li class="menu-button"  onclick="showSidebar()"> -->
+        </a>
+          
+          <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a>
+        </li>
+      
+      </div>
+    </header>
+
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <h2>Welcome to <span>Novel Nook</span></h2>
+                <p>
+                    At <strong>Novel Nook</strong>, we bring the joy of reading to your fingertips. Whether you're searching for thrilling fiction, insightful non-fiction, or academic resources, we have it all.
+                </p>
+                <p>
+                    Our mission is to provide a seamless shopping experience, with a vast collection, secure payments, and fast delivery. Join our book-loving community today!
+                </p>
+                <ul>
+                    <li>📚 Wide Collection of Books</li>
+                    <li>🚀 Fast & Secure Shopping</li>
+                    <li>🎁 Exclusive Discounts & Deals</li>
+                </ul>
+                <a href="product.html" class="btn">Explore Books</a>
+            </div>
+            <div class="about-image">
+                <img src="img/waterstones 📖☕️.jpeg" alt="Bookshelf">
+            </div>
+        </div>
+
+    </section>
+
+</body>
+</html>

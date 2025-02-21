@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+    <style>
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+/* Cart Icon Button */
+.cart-icon {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 1.8rem;
+    color: white;
+    background: #ff5733;
+    padding: 10px 15px;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.cart-icon:hover {
+    background: #c70039;
+}
+
+/* Heading */
+h2 {
+    margin: 60px 0 20px;
+    font-size: 2rem;
+    color: #333;
+}
+ 
+
+
+/* Product Container */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1300px;
+    height: 900px;
+    margin: auto;
+}
+
+/* Individual Product */
+.product {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Product Image */
+.product img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Product Title */
+.product-title {
+    font-size: 1.2rem;
+    color: #222;
+    margin: 10px 0;
+}
+
+/* Product Price */
+.product-price {
+    font-size: 1.1rem;
+    color: #e63946;
+    font-weight: bold;
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+    background: #ff5733;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background: #c70039;
+}
+
+
+    </style>
+
+
+
+    <!-- Cart Button on Top Right -->
+    
+
+
+    <header>
+        <a href="index.html" class="logo">
+          <img src="novelnook.png" alt="Novel Nook Logo" />
+        </a>
+       
+        <a href="cart.html" class="cart-icon">
+            <!-- <i class="fas fa-shopping-cart"></i> -->
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
+            </svg>
+        </a>
+            </header>
+    
+    <h2>Products</h2>
+    <div class="container" id="product-container"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const products = [
+                { id: 1, title: "It Ends With Us", author: "Colleen Hoover", price: "₹300", image: "https://i.pinimg.com/736x/dd/bb/9e/ddbb9e4f231db100d4780bb8cda17fa3.jpg", description: "A powerful novel by Colleen Hoover about love, resilience, and difficult choices, exploring the impact of past trauma on present relationships." },
+                { id: 2, title: "XOXO", author: "Axie Oh", price: "₹399", image: "https://i.pinimg.com/736x/68/4c/bf/684cbf156fdc574f64ae5e54c5d35fcb.jpg", description: "A sweet YA romance by Axie Oh, where a Korean-American girl falls for a K-pop idol, navigating love, dreams, and the pressures of fame." },
+                { id: 3, title: "The Fault in Our Stars",author: "John Green", price: "₹300", image: "https://i.pinimg.com/736x/83/55/72/83557235fb962ad45ab0f47b2a9bedc0.jpg", description: "A poignant novel by John Green about two teenagers with cancer who find love, hope, and meaning in the face of life’s uncertainties."},
+                { id: 4, title: "Red, White & Royal Blue", author: "Casey McQuiston", price: "₹1,327.", image: "https://i.pinimg.com/736x/ae/a9/cd/aea9cd94ab285bf1372a87813b16ca68.jpg", description: "A romantic comedy by Casey McQuiston about the First Son of the U.S. and a British prince whose rivalry turns into an unexpected love story." },
+                { id: 5, title: "Love & Other Words", author: "Christina Lauren", price: "₹929", image: "https://i.pinimg.com/736x/36/84/97/368497acf41b82ea01bc8523f15e02a2.jpg", description: " A heartfelt novel by Christina Lauren about childhood friends turned lovers, exploring love, loss, and the power of second chances." },
+                { id: 6, title: "Beach Read", author: "Emily Henry", price: "₹962", image: "https://i.pinimg.com/736x/4c/43/0f/4c430fa3d2c6b8dd1bdffc8caee540e4.jpg", description: "A charming romance by Emily Henry about two opposite authors who spend a summer challenging each other to write outside their comfort zones, discovering love along the way." },
+                { id: 7, title: "Call Me by Your Name",author: "André Aciman", price: "₹339", image: "https://i.pinimg.com/736x/3f/50/49/3f5049ac512db74b5e95064b0cf0621e.jpg", description: "A poignant coming-of-age romance by André Aciman, exploring first love, desire, and self-discovery during a transformative summer in Italy." },
+                { id: 8, title: "Say You`ll Remember Me", author: "Katie McGarry", price: "₹999", image: "https://tse4.mm.bing.net/th?id=OIP.a-Vv8E5z_U1QG_A9iqozNQHaLT&w=200&h=305&c=7", description: "A moving romance by Katie McGarry about a governor’s daughter and a troubled boy who defy expectations to fight for love and a future together." },               
+                { id: 9, title: "Outlander", author: "Diana Gabaldon", price: "₹1,099", image: "https://i.pinimg.com/736x/e4/92/cd/e492cd65e0bca7946975aa562c66c08a.jpg", description:" A historical romance by Diana Gabaldon, where a 20th-century nurse is transported back to 18th-century Scotland, entangling her in adventure, love, and war." },
+                { id: 10, title: "The Sweetest Oblivion",author: "Danielle Lori", price: "₹399", image: "https://i.pinimg.com/236x/99/7b/37/997b37e547ef6ae05e990dcd1c0896f7.jpg", description: "A gripping mafia romance by Danielle Lori, where a reluctant arranged marriage leads to an intense, forbidden attraction filled with danger and desire." },
+                { id: 11, title: "Check & Mate", author: "Ali Hazelwood",  price: "₹499", image: "https://i.pinimg.com/736x/85/b7/c6/85b7c644ff0562a90e74469c07acbb80.jpg", description:"A captivating rivals-to-lovers romance about a chess prodigy facing off against a grandmaster, exploring ambition, strategy, and unexpected love." },
+                { id: 12, title: "Me Before You", author: " Jojo Moyes", price: "₹390", image: "https://i.pinimg.com/736x/6d/b2/b8/6db2b84e1f6f0d95c106582706e57f81.jpg", description:"A heartwarming yet heartbreaking novel by Jojo Moyes about an unexpected romance that challenges perspectives on life, love, and choices" }
+
+            ];
+            
+            const container = document.getElementById("product-container");
+            
+            products.forEach(product => {
+                const productElement = document.createElement("div");
+                productElement.classList.add("product");
+                productElement.innerHTML = `
+                   
+
+                     <a href="details.html?title=${encodeURIComponent(product.title)}&author=${encodeURIComponent(product.author)}&price=${encodeURIComponent(product.price)}&description=${encodeURIComponent(product.description)}&image=${encodeURIComponent(product.image)}">
+                    <img src="${product.image}" alt="${product.title}">
+                </a>
+                    <h2 class="product-title">${product.title}</h2>
+                    <p class="product-price">${product.price}</p>
+                    <button class="add-to-cart" onclick='addToCart(${JSON.stringify(product)})'>Add to Cart</button>
+                `;
+                container.appendChild(productElement);
+            });
+            
+            window.addToCart = function(product) {
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                cart.push(product);
+                localStorage.setItem("cart", JSON.stringify(cart));
+                alert("Added to cart!");
+            };
+        });
+    </script>
+</body>
+</html>

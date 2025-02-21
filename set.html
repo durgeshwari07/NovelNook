@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVEL-NOOK</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 20px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 100px;
+    transition: 0.5s linear;
+    /* background: var(--bg-color); */
+    
+}
+
+header.shadow{
+    background: var(--main-color);
+    box-shadow: var(--box-shadow);
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo img{
+    width: 110PX;
+    height: auto;
+}
+
+
+        h1, h2{
+           text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+        .book-set {
+            border: 1px solid #ccc;
+            padding: 20px;
+            max-width: 300px;
+            text-align: center;
+        }
+        .book-item{
+            border: 1px solid #ccc;
+            padding: 20px;
+            max-width: 250px;
+            text-align: center;
+
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .price {
+            font-size: 20px;
+            color: green;
+        }
+        .discount {
+            font-size: 18px;
+            color: red;
+            font-weight: bold;
+        }
+        .button {
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            display: block;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">
+          <img src="novelnook.png" alt="Novel Nook Logo" />
+        </a>
+    </header>
+
+    <h1>Welcome to Book Collection</h1>
+    
+    <h2>Ana Huang's Book Sets</h2>
+    <div class="container">
+        
+
+        <div class="book-set">
+            <img src="https://i.pinimg.com/736x/e2/53/17/e25317162b671182620d69e03e4a6bb4.jpg" alt="Set of 5 Books">
+            <h3>Twisted series </h3>
+            <p>Includes 4 bestselling books from Ana Huang.</p>
+            <p class="price">Original Price: <s>₹599</s></p>
+            <p class="discount">Discounted Price: ₹499</p>
+            <button class="button" onclick="addToCart()">Add to Cart</button>
+        </div>
+
+        <div class="book-set">
+            <img src="https://i.pinimg.com/474x/0f/e0/49/0fe049f8d421f2448eb6722742f8bb0b.jpg" alt="Set of 5 Books">
+            <h3>Kings of Sin series</h3>
+            <p>Includes 4 bestselling books from Ana Huang.</p>
+            <p class="price">Original Price: <s>₹899</s></p>
+            <p class="discount">Discounted Price: ₹749</p>
+            <button class="button" onclick="addToCart()">Add to Cart</button>
+        </div>
+    </div>
+    
+    <h2>Rowling Book Sets</h2>
+    <div class="container">
+        
+
+        <div class="book-set">
+            <img src="https://i.pinimg.com/474x/15/74/74/157474eec5dd77e0ee5b38f8c12bc4c0.jpg" alt="Set of 5 Books">
+            <h3>Harry Potter </h3>
+            <p> Bestselling books from Rowling.</p>
+            <p class="price">Original Price: <s>₹1799</s></p>
+            <p class="discount">Discounted Price: ₹1299</p>
+            <button class="button" onclick="addToCart()">Add to Cart</button>
+        </div>
+
+        <div class="book-set">
+            <img src="https://i.pinimg.com/474x/d4/ad/22/d4ad22d8bf4a2612a19833e0feee9e36.jpg" alt="Set of 5 Books">
+            <h3>Harry Potter </h3>
+            <p> Bestselling books from Rowling.</p>
+            <p class="price">Original Price: <s>₹1999</s></p>
+            <p class="discount">Discounted Price: ₹1499</p>
+            <button class="button" onclick="addToCart()">Add to Cart</button>
+        </div>
+    </div>
+    
+        
+
+    <script>
+        function addToCart() {
+            alert("Item added to cart!");
+        }
+    </script>
+</body>
+</html>
